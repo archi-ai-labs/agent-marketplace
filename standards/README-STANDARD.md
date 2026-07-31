@@ -9,6 +9,25 @@ The frame is fixed. Add plugin-specific sections where §2 allows them; do not
 reorder the frame, and do not drop a required section because a particular plugin
 "does not really need it" — the reader needs it in the same place every time.
 
+**Where this sits.** This file governs the *shape of the README*. How the plugin
+is packaged — manifest, layout, skills, invocation, versioning, what may ship —
+belongs to [`COMMUNITY-PLUGIN-STANDARD.md`](COMMUNITY-PLUGIN-STANDARD.md). When
+the two documents can both be read as covering something, and they disagree, the
+order is:
+
+```
+1. Anthropic's published spec        ← highest, not negotiable
+2. COMMUNITY-PLUGIN-STANDARD.md      ← packaging, manifest, layout, skills
+3. README-STANDARD.md                ← this file
+4. trim-kit's own README             ← lowest
+```
+
+§5 below says that when this file and trim-kit's README disagree, trim-kit is
+right. **That still holds between those two.** It stops holding when Anthropic's
+spec is the other party: the spec wins, even where that forces a change to
+trim-kit's README. A house standard is ours to revise; the spec is the condition
+of being listed in someone else's catalog.
+
 ## 1. Purpose and scope
 
 **Applies to:** the root `README.md` of a plugin repo listed in
@@ -282,6 +301,13 @@ imposed on it, so a disagreement means the extraction missed something — not t
 the example drifted. Fix this file; leave the README alone. The same does not hold
 for the other direction: a plugin that is not the source of the standard gets
 corrected to match it, which is exactly what docs-kit's README was in v0.8.0.
+
+The one exception is set out at the top of this file: where Anthropic's spec is
+what trim-kit's README contradicts, the README is corrected, not the spec and not
+this document. That happened once already — the README claimed zero always-on
+context while a skill description sat permanently in context, and v0.5.0 replaced
+the claim with a measured number
+([`COMMUNITY-PLUGIN-STANDARD.md` §6.2](COMMUNITY-PLUGIN-STANDARD.md)).
 
 ## 6. Pre-publish checklist
 
