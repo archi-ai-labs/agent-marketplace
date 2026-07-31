@@ -1,0 +1,52 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Belt-and-suspenders: a deterministic JSON syntax gate that needs no auth,
+      # so a broken catalog fails even if the CLI step has trouble.
+      - name: Lint catalog (JSON syntax)
+        run: node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json','utf8'))"
+
+      # The installer is piped into bash from a public URL. A syntax error here
+      # reaches users as a half-executed script, so it is checked on every push.
+      - name: Installer shell syntax
+        run: bash -n install.sh
+
+      # Every plugin entry must name a repo that exists and is readable, and the
+      # ids in the catalog must match the ids the installer writes. Neither is
+      # covered by JSON syntax, and both break installs silently.
+      - name: Catalog entries resolve
+        run: |
+          node -e '
+            const m = JSON.parse(require("fs").readFileSync(".claude-plugin/marketplace.json", "utf8"));
+            for (const p of m.plugins) {
+              if (p.source?.source !== "github") throw new Error(`${p.name}: expected a github source`);
+              console.log(`${p.name}@${m.name} -> ${p.source.repo}`);
+            }
+          ' | tee /tmp/entries.txt
+          while read -r line; do
+            repo="${line##*-> }"
+            curl -fsSL -o /dev/null "https://api.github.com/repos/${repo}" \
+              || { echo "::error::${repo} is not reachable — the catalog points at a repo that does not exist."; exit 1; }
+            echo "OK — ${repo} exists"
+          done < /tmp/entries.txt
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate marketplace
+        run: claude plugin validate .

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>archi-ai-labs — Claude Code plugins</title>
+<meta name="description" content="The archi-ai-labs marketplace for Claude Code: trim-kit and docs-kit, installable with one command.">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #fbfbfd; color: #1d1d1f; padding: 2rem 1.25rem;
+  }
+  main { max-width: 720px; width: 100%; }
+  h1 { font-size: 2rem; margin: 0 0 .3rem; letter-spacing: -.02em; }
+  p.tag { margin: 0 0 2rem; opacity: .7; }
+  .label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; opacity: .5; margin: 0 0 .5rem; }
+  .cmd {
+    background: #fff; border: 1px solid #e3e3e6; border-radius: 10px;
+    padding: 1rem 1.15rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .875rem; overflow-x: auto; white-space: nowrap;
+  }
+  .cmd + .label { margin-top: 1.5rem; }
+  .cmd .p { opacity: .45; user-select: none; }
+  .note { font-size: .85rem; opacity: .6; margin: .6rem 0 0; }
+  .plugins { margin: 2.5rem 0 0; display: grid; gap: 1rem; }
+  .card {
+    border: 1px solid #e3e3e6; border-radius: 12px; padding: 1.1rem 1.25rem;
+    background: #fff; text-decoration: none; color: inherit; display: block;
+  }
+  .card:hover { border-color: #b9b9c0; }
+  .card h2 { margin: 0 0 .15rem; font-size: 1.05rem; letter-spacing: -.01em; }
+  .card code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; opacity: .55; }
+  .card p { margin: .5rem 0 0; font-size: .9rem; opacity: .75; }
+  .links { margin-top: 2.5rem; display: flex; gap: .75rem; flex-wrap: wrap; }
+  a.btn {
+    text-decoration: none; color: inherit; border: 1px solid #e3e3e6;
+    border-radius: 8px; padding: .5rem .9rem; font-size: .9rem;
+  }
+  a.btn:hover { opacity: .65; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0d0d10; color: #e8e8ea; }
+    .cmd, .card { background: #17171b; border-color: #2a2a30; }
+    .card:hover { border-color: #3d3d46; }
+    a.btn { border-color: #2a2a30; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>archi-ai-labs</h1>
+  <p class="tag">A Claude Code plugin marketplace. Two plugins today; one command registers the catalog and switches on what you ask for.</p>
+
+  <p class="label">Install globally</p>
+  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash</div>
+
+  <p class="label">Or pick the plugins</p>
+  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit</div>
+  <p class="note">With no arguments the installer enables only <code>trim-kit</code>. <code>docs-kit</code> registers hooks, so it is opt-in.</p>
+
+  <div class="plugins">
+    <a class="card" href="https://github.com/archi-ai-labs/trim-kit">
+      <h2>trim-kit <code>trim-kit@archi-ai-labs</code></h2>
+      <p>Audits a project's Claude Code config and says what to add and what to cut — then applies it. Plain skills only: no hooks, no agents, no MCP.</p>
+    </a>
+    <a class="card" href="https://github.com/archi-ai-labs/docs-kit">
+      <h2>docs-kit <code>docs-kit@archi-ai-labs</code></h2>
+      <p>Gives a repo a documentation model with a spine: three layers, one direction of change, deterministic checks, and an HTML read model generated from the markdown.</p>
+    </a>
+  </div>
+
+  <div class="links">
+    <a class="btn" href="https://github.com/archi-ai-labs/agent-marketplace">GitHub &rarr;</a>
+    <a class="btn" href="https://github.com/archi-ai-labs/agent-marketplace#-install">Install docs &rarr;</a>
+    <a class="btn" href="https://github.com/archi-ai-labs/agent-marketplace/blob/main/standards/README-STANDARD.md">README standard &rarr;</a>
+  </div>
+</main>
+</body>
+</html>
