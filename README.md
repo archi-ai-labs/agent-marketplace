@@ -68,11 +68,28 @@ picker and the exact keys the installer writes.
   section frame, form conventions and install contract that every plugin README
   in this marketplace follows. It was extracted from the two READMEs that already
   existed rather than invented, and `trim-kit`'s README is its worked example.
+- **[`standards/COMMUNITY-PLUGIN-STANDARD.md`](standards/COMMUNITY-PLUGIN-STANDARD.md)**
+  — everything that is not the README: manifest, layout, path containment, skills
+  and how they are invoked, opt-in defaults, versioning, and what may ship at all.
+  Every rule is labelled `[ANTHROPIC]` with a link or `[HOUSE]` with a reason, so
+  a reader can tell a condition of entry from a matter of taste.
+- **[`standards/SUBMISSION-DOSSIER.md`](standards/SUBMISSION-DOSSIER.md)** — the
+  facts to paste into Anthropic's submission form, per plugin.
+
+When the documents disagree: Anthropic's spec, then `COMMUNITY-PLUGIN-STANDARD`,
+then `README-STANDARD`, then `trim-kit`'s README.
 
 `standards/` is where cross-plugin rules live, so a rule that applies to all of
 them has one home instead of being re-derived per repo. This README is itself out
 of scope for the README standard — that document describes a plugin README, and
 this is a catalog.
+
+### On the way to `claude-community`
+
+Both plugins are being prepared for Anthropic's community plugin directory, where
+they would install as `<plugin>@claude-community` alongside the route above. That
+is a review process with no promised outcome and no schedule — the catalog here
+is what works today, and will keep working either way.
 
 ---
 
@@ -80,10 +97,13 @@ this is a catalog.
 
 1. Publish the plugin as its own public repo in `archi-ai-labs`, with
    `.claude-plugin/plugin.json` at the root.
-2. Write its README to [the standard](standards/README-STANDARD.md), and walk the
-   checklist at the end of that file.
+2. Package it to [the plugin standard](standards/COMMUNITY-PLUGIN-STANDARD.md) and
+   write its README to [the README standard](standards/README-STANDARD.md). Walk
+   both checklists — they are at the end of each file and neither covers the other.
 3. Add an entry to [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json)
-   with a `github` source pointing at the new repo.
+   with a `github` source pointing at the new repo. `name`, `displayName`,
+   `description` and `author` must match the plugin's own `plugin.json`; when they
+   disagree, the catalog is what gets corrected.
 4. Add a row to the table above and a card to [`index.html`](index.html).
 
 `install.sh` needs no change — `--plugins` passes names straight through, so the

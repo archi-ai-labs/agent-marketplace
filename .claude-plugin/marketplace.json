@@ -7,16 +7,22 @@
   "plugins": [
     {
       "name": "trim-kit",
-      "displayName": "Claude Trim Kit",
+      "displayName": "Trim Kit",
       "source": {
         "source": "github",
         "repo": "archi-ai-labs/trim-kit"
       },
       "description": "A small toolkit for setting up and maintaining Claude Code configuration per project. No hooks, no agents, no MCP - plain skills only.",
       "author": {
-        "name": "archi-ai-labs"
+        "name": "archi-ai-labs",
+        "url": "https://github.com/archi-ai-labs"
       },
-      "keywords": ["setup", "config", "context", "maintenance"]
+      "keywords": [
+        "setup",
+        "config",
+        "context",
+        "maintenance"
+      ]
     },
     {
       "name": "docs-kit",
@@ -25,11 +31,19 @@
         "source": "github",
         "repo": "archi-ai-labs/docs-kit"
       },
-      "description": "Three-layer docs workflow as an installable unit: scaffold the structure (docs-init), reconcile docs with what a session actually did (docs-sync), validate deterministically (docs-check), render an HTML docs site (docs-render), and turn settled decisions into a delegation prompt (brief). Warn-only hooks enforce Architecture-via-Decision and sensitive-change traceability.",
+      "description": "Three-layer docs workflow as an installable unit: scaffold the structure (docs-init), reconcile docs with what a session actually did (docs-sync), validate structure deterministically (docs-check), render a deterministic HTML site of the docs (docs-render), and turn settled decisions into a delegation prompt (brief). Warn-only hooks keep the agent honest about Architecture amendments and undocumented sensitive changes.",
       "author": {
-        "name": "archi-ai-labs"
+        "name": "archi-ai-labs",
+        "url": "https://github.com/archi-ai-labs"
       },
-      "keywords": ["docs", "documentation", "workflow", "traceability", "governance", "delegation"]
+      "keywords": [
+        "docs",
+        "documentation",
+        "workflow",
+        "traceability",
+        "governance",
+        "delegation"
+      ]
     }
   ]
 }

@@ -49,4 +49,8 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Validate marketplace
-        run: claude plugin validate .
+        # --strict turns warnings into errors. A catalog entry with a
+        # misspelled field still loads and still validates with a warning, which
+        # is exactly why it has to fail here: the field you typo is the field you
+        # believe you set.
+        run: claude plugin validate . --strict

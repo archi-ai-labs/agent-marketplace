@@ -293,8 +293,17 @@ CI fails a tag `v<x.y.z>` that does not match `version` in `plugin.json`, which
 means tagging first to "see if it passes" produces a failed run attached to a tag
 that now exists.
 
-**8.4 · The release commit contains `CHANGELOG.md` and `plugin.json`, nothing
-else.** `[HOUSE]`. Anything else goes in its own commit first.
+**8.4 · The release commit contains `CHANGELOG.md`, `plugin.json`, and anything
+mechanically derived from the version — nothing else.** `[HOUSE]`. Every other
+change goes in its own commit first.
+
+The derived-file clause is not a loophole, it is a consequence. docs-kit stamps
+the plugin version into `design/sample-*.html`, and CI fails when those files
+differ from a fresh render. Regenerating them in a separate commit would leave
+the release commit itself failing CI. They belong with the bump for the same
+reason `plugin.json` does: reverting the release has to revert all of it. What
+the rule actually forbids is the unrelated fix riding along — a release commit
+that also corrects a typo is one nobody can revert cleanly.
 
 **8.5 · Submission happens once.** `[ANTHROPIC]`. An approved plugin is pinned to
 a commit SHA in the community catalog and CI advances the pin as you push; you do
@@ -364,7 +373,10 @@ Each line is checkable by looking, not by judgement.
 - [ ] `marketplace.json` agrees with `plugin.json` on name, displayName, description, author.
 - [ ] `.claude-plugin/` contains only `plugin.json`.
 - [ ] No `commands/` directory; every skill is `skills/<name>/SKILL.md`.
-- [ ] `grep -rn '\.\./\.\.' skills/` is empty.
+- [ ] Every `../` chain under `skills/` lands **inside** the plugin root. List the
+      candidates with `grep -rn '\.\./' skills/` and resolve each one by hand —
+      `skills/a/scripts/../../b` is fine, one more `..` is not. Counting dots is
+      not the check; where it lands is.
 - [ ] No test fixtures or harnesses under `skills/`.
 - [ ] Every skill not listed in §6.3 has `disable-model-invocation: true`.
 - [ ] Each open skill's description is ≤ 400 characters and names situations, not features.
@@ -372,7 +384,8 @@ Each line is checkable by looking, not by judgement.
 - [ ] Measured always-on cost is ≤ 150 tokens and is stated as a number in the README.
 - [ ] `defaultEnabled: false` if the plugin registers hooks or MCP servers, with all three README notes (§7).
 - [ ] `version` set explicitly, matching the tag; `CHANGELOG.md` has a dated section for it.
-- [ ] Release commit touched only `CHANGELOG.md` and `plugin.json`.
+- [ ] Release commit touched only `CHANGELOG.md`, `plugin.json`, and files
+      regenerated from the version.
 - [ ] No third-party skills, vendored files, or second licence in the repo.
 - [ ] No maintainer `.claude/settings.json`.
 - [ ] `README-STANDARD.md` §6 checklist has been walked as well.
