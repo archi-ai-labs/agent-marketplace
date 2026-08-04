@@ -29,7 +29,7 @@ curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash
 Choose what gets switched on:
 
 ```bash
-curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit
+curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board
 ```
 
 Add `--project` to write `./.claude/settings.json` in the current folder instead
@@ -59,6 +59,7 @@ picker and the exact keys the installer writes.
 |---|---|---|
 | [**trim-kit**](https://github.com/archi-ai-labs/trim-kit) | `trim-kit@archi-ai-labs` | Audits a project's Claude Code config and says what to add and what to cut — then applies it. No hooks, no agents, no MCP. |
 | [**docs-kit**](https://github.com/archi-ai-labs/docs-kit) | `docs-kit@archi-ai-labs` | A three-layer documentation model with deterministic checks and an HTML read model generated from the markdown. Ships two warn-only hooks. |
+| [**now-board**](https://github.com/archi-ai-labs/now-board) | `now-board@archi-ai-labs` | Keeps a 30-second board per repo — the live thread and its next action, what waits on your decision, what waits on someone else — so a context switch doesn't cost twenty minutes of re-reading the diff. Vietnamese output. |
 
 ---
 

@@ -18,8 +18,9 @@ paid by the person who cannot.
 ## 1. Scope and precedence
 
 **Applies to:** every plugin repo listed in `.claude-plugin/marketplace.json` —
-today [`trim-kit`](https://github.com/archi-ai-labs/trim-kit) and
-[`docs-kit`](https://github.com/archi-ai-labs/docs-kit).
+today [`trim-kit`](https://github.com/archi-ai-labs/trim-kit),
+[`docs-kit`](https://github.com/archi-ai-labs/docs-kit) and
+[`now-board`](https://github.com/archi-ai-labs/now-board).
 
 **Does not apply to:** the `agent-marketplace` repo itself. It is a catalog, not
 a plugin: no `plugin.json`, no skills, nothing to submit.

@@ -151,3 +151,6 @@ esac
 case ",${PLUGINS}," in
   *,docs-kit,*) echo "  -  Run  /docs-kit:docs-init  in the repo you want documented." ;;
 esac
+case ",${PLUGINS}," in
+  *,now-board,*) echo "  -  Run  /now-board:now update  in a repo you work in — there is no board until that first write." ;;
+esac

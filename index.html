@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>archi-ai-labs — Claude Code plugins</title>
-<meta name="description" content="The archi-ai-labs marketplace for Claude Code: trim-kit and docs-kit, installable with one command.">
+<meta name="description" content="The archi-ai-labs marketplace for Claude Code: trim-kit, docs-kit and now-board, installable with one command.">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -57,7 +57,7 @@
   <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash</div>
 
   <p class="label">Or pick the plugins</p>
-  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit</div>
+  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board</div>
   <p class="note">With no arguments the installer enables only <code>trim-kit</code>. <code>docs-kit</code> registers hooks, so it is opt-in.</p>
 
   <div class="plugins">
@@ -68,6 +68,10 @@
     <a class="card" href="https://github.com/archi-ai-labs/docs-kit">
       <h2>docs-kit <code>docs-kit@archi-ai-labs</code></h2>
       <p>Gives a repo a documentation model with a spine: three layers, one direction of change, deterministic checks, and an HTML read model generated from the markdown.</p>
+    </a>
+    <a class="card" href="https://github.com/archi-ai-labs/now-board">
+      <h2>now-board <code>now-board@archi-ai-labs</code></h2>
+      <p>Keeps a 30-second board per repo — the live thread and its next action, what waits on your decision, what waits on someone else — so a context switch doesn't cost twenty minutes of re-reading the diff. Vietnamese output.</p>
     </a>
   </div>
 
