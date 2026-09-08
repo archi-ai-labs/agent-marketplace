@@ -58,7 +58,7 @@ picker and the exact keys the installer writes.
 | Plugin | Install id | What it does |
 |---|---|---|
 | [**trim-kit**](https://github.com/archi-ai-labs/trim-kit) | `trim-kit@archi-ai-labs` | Audits a project's Claude Code config and says what to add and what to cut — then applies it. No hooks, no agents, no MCP. |
-| [**docs-kit**](https://github.com/archi-ai-labs/docs-kit) | `docs-kit@archi-ai-labs` | A three-layer documentation model with deterministic checks and an HTML read model generated from the markdown. Ships two warn-only hooks. |
+| [**docs-kit**](https://github.com/archi-ai-labs/docs-kit) | `docs-kit@archi-ai-labs` | A three-layer documentation model with deterministic checks and an HTML read model generated from the markdown, plus a crew layer that runs tickets in parallel over a fixed pool of executor worktrees — one ticket, one branch, one named session. Ships four warn-only hooks. |
 | [**now-board**](https://github.com/archi-ai-labs/now-board) | `now-board@archi-ai-labs` | Keeps a 30-second board per repo — the live thread and its next action, what waits on your decision, what waits on someone else — so a context switch doesn't cost twenty minutes of re-reading the diff. Vietnamese output. |
 
 ---
