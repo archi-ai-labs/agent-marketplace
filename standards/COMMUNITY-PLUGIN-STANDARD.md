@@ -19,8 +19,9 @@ paid by the person who cannot.
 
 **Applies to:** every plugin repo listed in `.claude-plugin/marketplace.json` —
 today [`trim-kit`](https://github.com/archi-ai-labs/trim-kit),
-[`docs-kit`](https://github.com/archi-ai-labs/docs-kit) and
-[`now-board`](https://github.com/archi-ai-labs/now-board).
+[`docs-kit`](https://github.com/archi-ai-labs/docs-kit),
+[`now-board`](https://github.com/archi-ai-labs/now-board) and
+[`master-language`](https://github.com/archi-ai-labs/master-language).
 
 **Does not apply to:** the `agent-marketplace` repo itself. It is a catalog, not
 a plugin: no `plugin.json`, no skills, nothing to submit.
@@ -208,12 +209,17 @@ Current roster:
 |---|---|---|
 | `trim-kit` | `status` | `scan`, `apply`, `distill-plugin` |
 | `docs-kit` | `brief` | `docs-init`, `docs-check`, `docs-sync`, `docs-render` |
+| `master-language` | `vi` | `lint` |
 
 `status` is the cheapest thing in either plugin to open: it declares
 `disallowed-tools: Write Edit`, so Claude invoking it cannot change anything, and
 `context: fork`, so its output lands in a subagent rather than the main thread.
 `brief` is opened because a user assembling instructions for another agent will
 not remember that a command for exactly that exists.
+`vi` is opened because Claude has to notice for itself that it is writing
+Vietnamese, a user in the middle of a document will not remember a command, and
+the skill writes nothing of its own: it only shapes the document Claude was
+already asked to write.
 
 **`scan` is closed even though its description is the best-written trigger in
 either plugin** — it names the situations a user describes and ends *"even if

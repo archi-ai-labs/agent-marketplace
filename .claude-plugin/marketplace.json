@@ -68,6 +68,28 @@
         "resume",
         "dashboard"
       ]
+    },
+    {
+      "name": "master-language",
+      "displayName": "Master Language",
+      "source": {
+        "source": "github",
+        "repo": "archi-ai-labs/master-language"
+      },
+      "description": "Vietnamese that reads like native professional writing, not translation. One writing skill with a term policy for IT, finance and marketing, a deterministic Vietnamese linter (Python 3.9 stdlib), a post-write hook that feeds lint errors back to the agent, a hook that reacts when the user says an answer was hard to follow, and an opt-in concise chat output style. Vietnamese first; laid out as language packs so others can follow.",
+      "author": {
+        "name": "archi-ai-labs",
+        "url": "https://github.com/archi-ai-labs"
+      },
+      "keywords": [
+        "vietnamese",
+        "writing",
+        "style",
+        "localization",
+        "glossary",
+        "lint",
+        "documentation"
+      ]
     }
   ]
 }

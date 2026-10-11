@@ -16,8 +16,9 @@
 #   ./install.sh --project
 #
 # The default enables ONLY trim-kit. docs-kit installs PostToolUse and Stop
-# hooks, and switching hooks on for someone who did not ask for them is not a
-# default anyone should have to discover afterwards.
+# hooks and master-language installs PostToolUse and UserPromptSubmit hooks, and
+# switching hooks on for someone who did not ask for them is not a default
+# anyone should have to discover afterwards.
 #
 set -euo pipefail
 
@@ -32,7 +33,7 @@ usage() {
 usage: install.sh [--plugins a,b] [--project]
 
   --plugins LIST   comma-separated plugin names to enable (default: trim-kit)
-                   available: trim-kit, docs-kit
+                   available: trim-kit, docs-kit, now-board, master-language
   --project        write ./.claude/settings.json instead of ~/.claude/settings.json
   -h, --help       this message
 
@@ -153,4 +154,7 @@ case ",${PLUGINS}," in
 esac
 case ",${PLUGINS}," in
   *,now-board,*) echo "  -  Run  /now-board:now update  in a repo you work in — there is no board until that first write." ;;
+esac
+case ",${PLUGINS}," in
+  *,master-language,*) echo "  -  Run  /master-language:lint docs/  on Vietnamese Markdown you already have, or ask Claude for a Vietnamese document." ;;
 esac

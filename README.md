@@ -29,7 +29,7 @@ curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash
 Choose what gets switched on:
 
 ```bash
-curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board
+curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board,master-language
 ```
 
 Add `--project` to write `./.claude/settings.json` in the current folder instead
@@ -38,8 +38,8 @@ backed up first, the installer aborts without touching it if the JSON is
 invalid, and the two keys it writes are deep-merged rather than overwritten.
 
 **The default enables only `trim-kit`.** `docs-kit` installs `PostToolUse` and
-`Stop` hooks, and hooks should not be switched on for someone who did not ask
-for them.
+`Stop` hooks and `master-language` installs `PostToolUse` and `UserPromptSubmit`
+hooks, and hooks should not be switched on for someone who did not ask for them.
 
 Or from inside Claude Code, with no terminal:
 
@@ -60,6 +60,7 @@ picker and the exact keys the installer writes.
 | [**trim-kit**](https://github.com/archi-ai-labs/trim-kit) | `trim-kit@archi-ai-labs` | Audits a project's Claude Code config and says what to add and what to cut — then applies it. No hooks, no agents, no MCP. |
 | [**docs-kit**](https://github.com/archi-ai-labs/docs-kit) | `docs-kit@archi-ai-labs` | A three-layer documentation model with deterministic checks and an HTML read model generated from the markdown, plus a crew layer that runs tickets in parallel over a fixed pool of executor worktrees — one ticket, one branch, one named session. Ships four warn-only hooks. |
 | [**now-board**](https://github.com/archi-ai-labs/now-board) | `now-board@archi-ai-labs` | Keeps a 30-second board per repo — the live thread and its next action, what waits on your decision, what waits on someone else — so a context switch doesn't cost twenty minutes of re-reading the diff. Vietnamese output. |
+| [**master-language**](https://github.com/archi-ai-labs/master-language) | `master-language@archi-ai-labs` | Makes agent-written Vietnamese read as native professional writing in IT, finance and marketing: one writing skill with a term policy, a deterministic linter, and a hook that feeds its errors back after each write. Ships two warn-only hooks. |
 
 ---
 
