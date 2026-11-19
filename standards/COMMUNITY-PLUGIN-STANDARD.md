@@ -20,8 +20,9 @@ paid by the person who cannot.
 **Applies to:** every plugin repo listed in `.claude-plugin/marketplace.json` —
 today [`trim-kit`](https://github.com/archi-ai-labs/trim-kit),
 [`docs-kit`](https://github.com/archi-ai-labs/docs-kit),
-[`now-board`](https://github.com/archi-ai-labs/now-board) and
-[`master-language`](https://github.com/archi-ai-labs/master-language).
+[`now-board`](https://github.com/archi-ai-labs/now-board),
+[`master-language`](https://github.com/archi-ai-labs/master-language) and
+[`archi-tts`](https://github.com/archi-ai-labs/archi-tts).
 
 **Does not apply to:** the `agent-marketplace` repo itself. It is a catalog, not
 a plugin: no `plugin.json`, no skills, nothing to submit.
@@ -210,6 +211,7 @@ Current roster:
 | `trim-kit` | `status` | `scan`, `apply`, `distill-plugin` |
 | `docs-kit` | `brief` | `docs-init`, `docs-check`, `docs-sync`, `docs-render` |
 | `master-language` | `vi` | `lint` |
+| `archi-tts` | — | `setup` |
 
 `status` is the cheapest thing in either plugin to open: it declares
 `disallowed-tools: Write Edit`, so Claude invoking it cannot change anything, and

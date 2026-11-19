@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>archi-ai-labs — Claude Code plugins</title>
-<meta name="description" content="The archi-ai-labs marketplace for Claude Code: trim-kit, docs-kit, now-board and master-language, installable with one command.">
+<meta name="description" content="The archi-ai-labs marketplace for Claude Code: trim-kit, docs-kit, now-board, master-language and archi-tts, installable with one command.">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -51,14 +51,14 @@
 <body>
 <main>
   <h1>archi-ai-labs</h1>
-  <p class="tag">A Claude Code plugin marketplace. Four plugins today; one command registers the catalog and switches on what you ask for.</p>
+  <p class="tag">A Claude Code plugin marketplace. Five plugins today; one command registers the catalog and switches on what you ask for.</p>
 
   <p class="label">Install globally</p>
   <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash</div>
 
   <p class="label">Or pick the plugins</p>
-  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board,master-language</div>
-  <p class="note">With no arguments the installer enables only <code>trim-kit</code>. <code>docs-kit</code> and <code>master-language</code> register hooks, so they are opt-in.</p>
+  <div class="cmd"><span class="p">$ </span>curl -fsSL https://archi-ai-labs.github.io/agent-marketplace/install.sh | bash -s -- --plugins trim-kit,docs-kit,now-board,master-language,archi-tts</div>
+  <p class="note">With no arguments the installer enables only <code>trim-kit</code>. <code>docs-kit</code>, <code>master-language</code> and <code>archi-tts</code> register hooks, so they are opt-in.</p>
 
   <div class="plugins">
     <a class="card" href="https://github.com/archi-ai-labs/trim-kit">
@@ -76,6 +76,10 @@
     <a class="card" href="https://github.com/archi-ai-labs/master-language">
       <h2>master-language <code>master-language@archi-ai-labs</code></h2>
       <p>Makes agent-written Vietnamese read as native professional writing in IT, finance and marketing: one writing skill with a term policy, a deterministic linter, and a hook that feeds its errors back after each write.</p>
+    </a>
+    <a class="card" href="https://github.com/archi-ai-labs/archi-tts">
+      <h2>archi-tts <code>archi-tts@archi-ai-labs</code></h2>
+      <p>Local Vietnamese (Northern accent) text-to-speech for video dubbing over MCP: 15 built-in voices plus voice cloning, multi-voice scripts with emotion, pauses, speed, pitch and volume, WAV/MP3/SRT export. Apple Silicon.</p>
     </a>
   </div>
 

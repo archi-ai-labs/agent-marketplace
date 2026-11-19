@@ -16,8 +16,8 @@
 #   ./install.sh --project
 #
 # The default enables ONLY trim-kit. docs-kit installs PostToolUse and Stop
-# hooks and master-language installs PostToolUse and UserPromptSubmit hooks, and
-# switching hooks on for someone who did not ask for them is not a default
+# hooks, master-language installs PostToolUse and UserPromptSubmit hooks, and
+# archi-tts installs a SessionStart hook and an MCP server; switching hooks on for someone who did not ask for them is not a default
 # anyone should have to discover afterwards.
 #
 set -euo pipefail
@@ -33,7 +33,7 @@ usage() {
 usage: install.sh [--plugins a,b] [--project]
 
   --plugins LIST   comma-separated plugin names to enable (default: trim-kit)
-                   available: trim-kit, docs-kit, now-board, master-language
+                   available: trim-kit, docs-kit, now-board, master-language, archi-tts
   --project        write ./.claude/settings.json instead of ~/.claude/settings.json
   -h, --help       this message
 
@@ -157,4 +157,7 @@ case ",${PLUGINS}," in
 esac
 case ",${PLUGINS}," in
   *,master-language,*) echo "  -  Run  /master-language:lint docs/  on Vietnamese Markdown you already have, or ask Claude for a Vietnamese document." ;;
+esac
+case ",${PLUGINS}," in
+  *,archi-tts,*) echo "  -  archi-tts sets itself up in the background on its first session (~4.5 GB of models, 5-15 min; log: ~/.archi-tts/setup.log). Needs Apple Silicon and Homebrew." ;;
 esac

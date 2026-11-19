@@ -90,6 +90,28 @@
         "lint",
         "documentation"
       ]
+    },
+    {
+      "name": "archi-tts",
+      "displayName": "Archi TTS",
+      "source": {
+        "source": "github",
+        "repo": "archi-ai-labs/archi-tts"
+      },
+      "description": "Local Vietnamese (Northern accent) text-to-speech for video dubbing, served over MCP. 15 built-in VieNeu voices plus OmniVoice voice cloning with emotion clips; multi-voice scripts with pauses, emphasis, speed, pitch and volume; exports WAV, MP3 and SRT. Runs fully offline on Apple Silicon after a one-time ~4.5 GB model download, which starts automatically on first session.",
+      "author": {
+        "name": "archi-ai-labs",
+        "url": "https://github.com/archi-ai-labs"
+      },
+      "keywords": [
+        "tts",
+        "text-to-speech",
+        "vietnamese",
+        "dubbing",
+        "voice",
+        "mcp",
+        "audio"
+      ]
     }
   ]
 }
