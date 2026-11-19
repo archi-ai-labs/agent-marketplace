@@ -159,5 +159,5 @@ case ",${PLUGINS}," in
   *,master-language,*) echo "  -  Run  /master-language:lint docs/  on Vietnamese Markdown you already have, or ask Claude for a Vietnamese document." ;;
 esac
 case ",${PLUGINS}," in
-  *,archi-tts,*) echo "  -  archi-tts sets itself up in the background on its first session (~4.5 GB of models, 5-15 min; log: ~/.archi-tts/setup.log). Needs Apple Silicon and Homebrew." ;;
+  *,archi-tts,*) echo "  -  archi-tts sets itself up in the background on its first session (lite edition, ~1.3 GB; log: ~/.archi-tts/setup.log). Voice cloning: ask Claude to install the full edition. Needs Apple Silicon and Homebrew." ;;
 esac

@@ -98,7 +98,7 @@
         "source": "github",
         "repo": "archi-ai-labs/archi-tts"
       },
-      "description": "Local Vietnamese (Northern accent) text-to-speech for video dubbing, served over MCP. 15 built-in VieNeu voices plus OmniVoice voice cloning with emotion clips; multi-voice scripts with pauses, emphasis, speed, pitch and volume; exports WAV, MP3 and SRT. Runs fully offline on Apple Silicon after a one-time ~4.5 GB model download, which starts automatically on first session.",
+      "description": "Local Vietnamese (Northern accent) text-to-speech for video dubbing, served over MCP. 15 built-in VieNeu voices; multi-voice scripts with pauses, emphasis, speed, pitch and volume; exports WAV, MP3 and SRT. Runs fully offline on Apple Silicon. Installs the lite edition (~1.3 GB) automatically on first session; OmniVoice voice cloning with emotion clips is an opt-in full edition (~5.3 GB).",
       "author": {
         "name": "archi-ai-labs",
         "url": "https://github.com/archi-ai-labs"
